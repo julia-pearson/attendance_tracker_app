@@ -38,7 +38,7 @@
       <% end %>
       <ul>
         <% @students.each do |student| %>
-          <li="student-container">
+          <li class="student-container">
             <p class="student name"> <a href="/students/<%= student.id %>?cohort_id=<%=@cohort.id%>"> <%= student.first_name %> <%= student.last_name %></a></p>
             <div class="date-container">
             <!-- logic for dates -->
@@ -53,7 +53,7 @@
                   <%end%>
                 <%end%>
               <%end%>
-              <p>Missed: <%=@missed%> Tardies: <%=@lates%></p>
+              <p class="missed-tardies">Missed: <%=@missed%> Tardies: <%=@lates%></p>
               <%@missed = @missed*4 +@lates%>  
               <%if @missed >= 4*(@cohort.max_absences-1)%>
                 <p class="danger-zone">In Danger of Not Meeting the Graduation Requirements</p>
@@ -74,7 +74,7 @@
   </script>
   <%@total_missed = 0 %>
   <%@total_lates = 0 %>
-  <div class="right-side grid-4-8">
+  <div class="graph-box right-side grid-4-8">
     <div class="line-chart">
       <canvas id="myChart" width="400" height="400"></canvas>
     </div>
